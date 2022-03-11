@@ -2,7 +2,7 @@ import express from 'express';
 import { renderToNodeStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import fs from 'fs';
-import App from '../src/Components/App';
+import App from '../src/components/App';
 
 //Route declaration
 // fastify.get('/', async (req, res) => {

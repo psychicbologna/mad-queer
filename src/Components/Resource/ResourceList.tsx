@@ -11,7 +11,7 @@ const ResourceList = ({ resourceList }: IProps): JSX.Element => {
             {!resourceList
                 ? <li>No resources found</li>
                 : resourceList.map((resource: IResource) => {
-                    return <Resource {...resource} />
+                    return <Resource {...resource} key={resource.id} />
                 })}
         </ul >
     )

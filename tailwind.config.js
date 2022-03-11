@@ -3,7 +3,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
-                'blockquote': 'url(./double-quote.svg);'
+                'blockquote': 'url(./assets/double-quote.svg);'
             },
             backgroundPosition: {
                 'blockquote': 'right top'

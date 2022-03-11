@@ -8,7 +8,6 @@ const ResourcePage = (): JSX.Element => {
         resourceList: [] as Resource[]
     })
 
-    //TODO useEffect() for setting fetchResources() in state
     useEffect(() => {
         void requestResources();
     }, [])
@@ -19,7 +18,10 @@ const ResourcePage = (): JSX.Element => {
     }
 
     return (
-        <ResourceList resourceList={state.resourceList} />
+        <div className="ResourcePage">
+            <h3 className="text-2xl">Resources</h3>
+            <ResourceList resourceList={state.resourceList} />
+        </div>
     )
 }
 
