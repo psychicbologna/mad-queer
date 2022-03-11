@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { Heading } from '../components/utils'
 
 const Header = (): JSX.Element => {
     return (
         <div className="Header flex-col gap-10 p-10">
-            <h1 className="text-5xl pb-5">Mad Queer Organization Strategies</h1>
-            <h2 className="text-3xl">Liberation for Every Body</h2>
+            <Heading size={2}>Mad Queer Organization Strategies</Heading>
+            <Heading size={3}>Liberation for Every Body</Heading>
             <nav>
                 <NavLink to="/">
                     Home
@@ -17,6 +18,15 @@ const Header = (): JSX.Element => {
                 </NavLink>
                 <NavLink to="/reflections" >
                     Reflections
+                </NavLink>
+            </nav>
+
+            <nav>
+                <NavLink to="/connect">
+                    Connect
+                </NavLink>
+                <NavLink to="/feedback">
+                    Feedback
                 </NavLink>
             </nav>
         </div>

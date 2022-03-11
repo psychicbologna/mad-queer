@@ -3,6 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import Header from './Header';
 import LandingPage from '../routes/LandingPage';
 import ResourcePage from '../routes/ResourcePage';
+import AboutPage from "../routes/AboutPage";
+import ConnectPage from "../routes/ConnectPage";
+import FeedbackPage from "../routes/FeedbackPage";
+import ReflectionsPage from "../routes/ReflectionsPage";
+import PageNotFound from "../routes/PageNotFound";
+
+//TODO Dark mode, Print mode
+//TODO Redesign logo, create illustrations and assets for key resources via SVG. <https://parceljs.org/languages/svg/>
 // import ThemeContext from "./ThemeContext";
 
 const App = () => {
@@ -16,13 +24,15 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/resources" element={<ResourcePage />} />
-                    {/* TODO pseudo all these bitches */}
-                    {/* <Route path="/about" element={AboutPage} /> */}
-                    {/* <Route path="/reflections" element={BlogPage} /> */}
-                    {/* <Route path="/connect" element={ConnectPage} /> */}
-                    {/* <Route path="/feedback" element={FeedbackPage} /> */}
-                    {/* <Route path='*' element={PageNotFound} /> */}
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/reflections" element={< ReflectionsPage />} />
+                    <Route path="/connect" element={<ConnectPage />} />
+                    <Route path="/feedback" element={<FeedbackPage />} />
+                    <Route path='*' element={<PageNotFound />} />
                 </Routes>
+                <div className="Footer">
+                    Footer here
+                </div>
             </div>
         </StrictMode>
     );
