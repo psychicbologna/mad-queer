@@ -20,7 +20,9 @@ const ResourcePage = (): JSX.Element => {
     return (
         <div className="ResourcePage">
             <h3 className="text-2xl">Resources</h3>
-            <ResourceList resourceList={state.resourceList} />
+            <div className="ResourceListContainer">
+                <ResourceList resourceList={state.resourceList} />
+            </div>
         </div>
     )
 }

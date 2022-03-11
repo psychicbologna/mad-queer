@@ -16,6 +16,12 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/resources" element={<ResourcePage />} />
+                    {/* TODO pseudo all these bitches */}
+                    {/* <Route path="/about" element={AboutPage} /> */}
+                    {/* <Route path="/reflections" element={BlogPage} /> */}
+                    {/* <Route path="/connect" element={ConnectPage} /> */}
+                    {/* <Route path="/feedback" element={FeedbackPage} /> */}
+                    {/* <Route path='*' element={PageNotFound} /> */}
                 </Routes>
             </div>
         </StrictMode>

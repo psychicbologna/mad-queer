@@ -7,7 +7,7 @@ interface IProps {
 
 const ResourceList = ({ resourceList }: IProps): JSX.Element => {
     return (
-        <ul className="ResourceList">
+        <ul className="ResourceList grid grid-cols-2 gap-4">
             {!resourceList
                 ? <li>No resources found</li>
                 : resourceList.map((resource: IResource) => {

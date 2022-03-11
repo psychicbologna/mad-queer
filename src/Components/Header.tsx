@@ -1,8 +1,24 @@
+import { NavLink } from "react-router-dom"
+
 const Header = (): JSX.Element => {
     return (
         <div className="Header flex-col gap-10 p-10">
             <h1 className="text-5xl pb-5">Mad Queer Organization Strategies</h1>
             <h2 className="text-3xl">Liberation for Every Body</h2>
+            <nav>
+                <NavLink to="/">
+                    Home
+                </NavLink>
+                <NavLink to="/about">
+                    About
+                </NavLink>
+                <NavLink to="/resources">
+                    Resources
+                </NavLink>
+                <NavLink to="/reflections" >
+                    Reflections
+                </NavLink>
+            </nav>
         </div>
     )
 }

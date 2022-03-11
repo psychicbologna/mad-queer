@@ -16,7 +16,7 @@ export interface Resource {
     authors: string[] | [],
     pageCount: number | 0,
     type: "blog" | "pocket-pop-ed",
-    image?: image,
+    image: image,
 }
 
 export interface ResourceAPIResponses {

@@ -4,7 +4,7 @@
   "description": "An accessible, mobile-focused resource sharing app",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "dev": "npm -s run build && parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "build": "parcel build",
