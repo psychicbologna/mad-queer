@@ -1,5 +1,5 @@
 import textStore from '../assets/textStore';
-import { Blockquote } from "./utils";
+import { Blockquote } from "../components/utils";
 
 const LandingPage = (): JSX.Element => {
     const { landingPage } = textStore;

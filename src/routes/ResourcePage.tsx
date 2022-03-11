@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ResourceList from './ResourceList';
-import { Resource } from '../APIResponsesTypes';
-import ResourceAPI from '../../ResourceAPI';
+import ResourceList from '../components/Resource/ResourceList';
+import { Resource } from '../services/APIResponsesTypes';
+import ResourceAPI from '../services/ResourceAPI';
 
 const ResourcePage = (): JSX.Element => {
     const [state, setState] = useState<{ resourceList: Resource[] }>({

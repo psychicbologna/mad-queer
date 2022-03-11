@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from './Header';
-import LandingPage from './LandingPage';
-import ResourcePage from './Resource/ResourcePage';
+import LandingPage from '../routes/LandingPage';
+import ResourcePage from '../routes/ResourcePage';
 // import ThemeContext from "./ThemeContext";
 
 const App = () => {

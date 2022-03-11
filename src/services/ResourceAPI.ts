@@ -1,4 +1,4 @@
-import { image, Resource } from "./components/APIResponsesTypes";
+import { image, Resource } from "../services/APIResponsesTypes";
 import { v4 as uuidv4, V4Options } from 'uuid';
 
 interface makeResourceProps {

@@ -1,4 +1,4 @@
-import { Resource as IResource } from '../APIResponsesTypes';
+import { Resource as IResource } from '../../services/APIResponsesTypes';
 import ResourceHeader from './ResourceHeader';
 import ResourceBody from './ResourceBody';
 

@@ -1,4 +1,4 @@
-import { image } from "../APIResponsesTypes";
+import { image } from "../../services/APIResponsesTypes";
 
 interface IProps {
     description: string,

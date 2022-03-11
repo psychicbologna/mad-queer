@@ -1,4 +1,4 @@
-import { Resource as IResource } from "../APIResponsesTypes";
+import { Resource as IResource } from "../../services/APIResponsesTypes";
 import Resource from './Resource';
 
 interface IProps {
