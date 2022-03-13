@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-interface TextLinkProps {
+//DOM helpers
+export interface TextLinkProps {
     src: string,
     text: string
 }
-
 
 export const TextLink = (link: TextLinkProps): JSX.Element => {
     return (
@@ -15,7 +15,21 @@ export const TextLink = (link: TextLinkProps): JSX.Element => {
 
 }
 
-interface BlockquoteProps {
+export interface TextLinkListProps {
+    list: TextLinkProps[]
+};
+
+export const TextLinkList = (list: TextLinkProps[]) => {
+    return (
+        <ul>
+            {list.map((link) => {
+                return <li><TextLink src={link.src} text={link.text} /></li>
+            })}
+        </ul>
+    )
+}
+
+export interface BlockquoteProps {
     text: string,
     author: string,
     link?: TextLinkProps
@@ -37,10 +51,9 @@ export const Blockquote = (props: BlockquoteProps): JSX.Element => {
     )
 }
 
-
 //Heading
 /* Using the component Heading instead of <h> tags is a bit more verbose, but lets me chain together/override classes more easily. Only runs up to 5 levels of headings, otherwise defaults to <h1>.*/
-interface HeadingProps {
+export interface HeadingProps {
     size?: 1 | 2 | 3 | 4 | 5,
     children?: React.ReactNode,
     className?: string,
