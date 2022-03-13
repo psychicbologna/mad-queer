@@ -1,7 +1,14 @@
 const ConnectPage = () => {
     return (
-        <div>
-            this will lead to a contact page
+        <div className="Connect">
+            <div className="Alert">
+                <p>
+                    If you are looking for support and are currently in an emotional crisis, I recommend checking out the following groups and hotlines.
+                </p>
+                <ul>
+
+                </ul>
+            </div>
         </div>
     )
 }
