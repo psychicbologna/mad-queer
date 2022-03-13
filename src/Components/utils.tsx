@@ -1,10 +1,10 @@
-import { Children } from 'react';
 import { Link } from 'react-router-dom';
 
 interface TextLinkProps {
     src: string,
     text: string
 }
+
 
 export const TextLink = (link: TextLinkProps): JSX.Element => {
     return (

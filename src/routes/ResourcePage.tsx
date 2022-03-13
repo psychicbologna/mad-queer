@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ResourceList from '../components/Resource/ResourceList';
 import { Resource } from '../services/APIResponsesTypes';
 import ResourceAPI from '../services/ResourceAPI';
+import { Heading } from '../components/utils';
 
 //TODO Create a transcript version of each resource, maybe using markdown and a transformer in parcel.
 
@@ -21,7 +22,7 @@ const ResourcePage = (): JSX.Element => {
 
     return (
         <div className="ResourcePage">
-            <h3 className="text-2xl">Resources</h3>
+            <Heading size={3}>Resources</Heading>
             <div className="ResourceListContainer">
                 <ResourceList resourceList={state.resourceList} />
             </div>

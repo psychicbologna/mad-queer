@@ -1,3 +1,4 @@
+import { Heading } from '../utils';
 
 interface IProps {
     title: string,
@@ -10,11 +11,13 @@ interface IProps {
 const ResourceHeader = ({ title, subtitle, authors, pageCount, type }: IProps): JSX.Element => {
     return (
         <div className="ResourceHeader bg-slate-800">
-            <h1 className="text-3xl">{title}</h1>
-            <h2 className="text-2xl">{subtitle}</h2>
-            <h4 className="text-xl">By {authors[0]}</h4>
-            <h3 className="text-xl">{type}</h3>
-            {!!pageCount ? <p> Pages: {pageCount}</p> : <p>Throw error for pagecount</p>}
+            <Heading size={3}>{title}</Heading>
+            <Heading size={4}>{subtitle}</Heading>
+            <p className="text-xl">By {authors[0]}</p>
+            <p className="text-xl">{type}</p>
+            <p>
+                {!!pageCount ? `Pages: ${pageCount}` : null}
+            </p>
         </div>)
 }
 
