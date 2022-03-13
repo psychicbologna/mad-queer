@@ -19,11 +19,11 @@ export interface TextLinkListProps {
     list: TextLinkProps[]
 };
 
-export const TextLinkList = (list: TextLinkProps[]) => {
+export const TextLinkList = ({ list }: TextLinkListProps): JSX.Element => {
     return (
         <ul>
-            {list.map((link) => {
-                return <li><TextLink src={link.src} text={link.text} /></li>
+            {list.map((link: TextLinkProps) => {
+                return <li><TextLink {...link} /></li>
             })}
         </ul>
     )
