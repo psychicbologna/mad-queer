@@ -1,4 +1,4 @@
-import { Heading } from '../utils';
+import { Heading } from '../Utils';
 
 interface IProps {
     title: string,

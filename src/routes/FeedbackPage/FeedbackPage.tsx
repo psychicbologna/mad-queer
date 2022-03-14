@@ -1,3 +1,5 @@
+import './FeedbackPage.css';
+
 const FeedbackPage = () => {
     return (
         <div>

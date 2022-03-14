@@ -1,4 +1,5 @@
-import { Heading, LocalLink, TextLinkList, LinkButton } from "../components/utils";
+import { Page, Heading, LocalLink, TextLinkList, LinkButton } from "../../components/Utils";
+import './ConnectPage.css';
 
 const crisisLinks = [
     {
@@ -36,7 +37,7 @@ const crisisLinks = [
 //TODO style Alert component
 const ConnectPage = () => {
     return (
-        <div className="Connect">
+        <Page className="Connect">
             <div className="Alert">
                 <p>
                     If you are looking for support and are currently in an emotional crisis, I recommend checking out the following groups and hotlines.
@@ -52,7 +53,7 @@ const ConnectPage = () => {
             <div className="Action">
                 <LinkButton href="https://elliott119849.typeform.com/to/pbHmqpkf">Get In Touch With Me</LinkButton>
             </div>
-        </div>
+        </Page>
     )
 }
 

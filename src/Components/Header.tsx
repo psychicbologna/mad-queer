@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Heading } from '../components/utils'
+import { Heading } from './Utils'
 
 const Header = (): JSX.Element => {
     return (

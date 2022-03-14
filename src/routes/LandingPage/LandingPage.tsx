@@ -1,5 +1,6 @@
-import textStore from '../assets/textStore';
-import { Blockquote, Heading } from "../components/utils";
+import textStore from '../../assets/textStore';
+import { Blockquote, Heading } from "../../components/Utils";
+import './LandingPage.css'
 
 const quote1 = {
     text: 'We urgently need to bring to our communities the limitless capacity to love, serve, and create for and with each other. We urgently need to bring the neighbor back into our hoods, not only in our inner cities but also in our suburbs, our gated communities, on Main Street and Wall Street, and on Ivy League campuses.',

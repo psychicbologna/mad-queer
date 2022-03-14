@@ -1,5 +1,5 @@
 import { image, Resource } from "../services/APIResponsesTypes";
-import { v4 as uuidv4, V4Options } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 interface makeResourceProps {
     title?: string,

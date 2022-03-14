@@ -1,13 +1,22 @@
-import { Heading, ExternalLink, Blockquote } from "../components/utils";
+import { Page, Heading, ExternalLink, Blockquote } from "../../components/Utils";
+import './AboutPage.css';
 
-const sammieImage = new URL('../assets/about/sammie-ablaza-wills.bmp', import.meta.url);
-const chrisImage = new URL('../assets/about/christoph-hanssmann.bmp', import.meta.url)
+const sammieImage = new URL('../../assets/about/sammie-ablaza-wills.bmp', import.meta.url);
+const chrisImage = new URL('../../assets/about/christoph-hanssmann.bmp', import.meta.url)
 
+const quote1 = {
+    text: 'Our feelings are our most genuine paths to knowledge',
+    author: 'Audre Lorde',
+    link: {
+        text: '“Conversations with Audre Lorde”, Univ. Press of Mississippi',
+        to: 'https://www.upress.state.ms.us/Books/C/Conversations-with-Audre-Lorde',
+    }
+}
 
 
 const AboutPage = () => {
     return (
-        <div className="About">
+        <Page className="AboutPage">
             <Heading size={3}>My Origin Story</Heading>
 
             <p>My name is Elliott Fukui, I use He/Him pronouns and currently live in California, and I've been an organizer, trainer and facilitator for 20 years across different movements, working with organizations, collectives, friends, and family. You can check out some of my work on my <ExternalLink src='https://www.linkedin.com/in/elliott-fukui/'>Linkedin.</ExternalLink></p>
@@ -47,11 +56,9 @@ const AboutPage = () => {
                 </li>
             </ul>
             <div>
-                <Blockquote>
-
-                </Blockquote>
+                <Blockquote {...quote1} />
             </div>
-        </div>
+        </Page>
     )
 }
 
