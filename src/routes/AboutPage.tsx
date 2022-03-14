@@ -3,6 +3,8 @@ import { Heading, ExternalLink, Blockquote } from "../components/utils";
 const sammieImage = new URL('../assets/about/sammie-ablaza-wills.bmp', import.meta.url);
 const chrisImage = new URL('../assets/about/christoph-hanssmann.bmp', import.meta.url)
 
+
+
 const AboutPage = () => {
     return (
         <div className="About">
