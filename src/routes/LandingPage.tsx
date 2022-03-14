@@ -6,7 +6,7 @@ const quote1 = {
     author: 'Grace Lee Boggs',
     link: {
         text: 'Boggs School',
-        src: 'http://www.boggsschool.org',
+        to: 'http://www.boggsschool.org',
     }
 }
 

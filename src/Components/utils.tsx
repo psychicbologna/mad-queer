@@ -1,29 +1,68 @@
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 
 //DOM helpers
-export interface TextLinkProps {
-    src: string,
-    text: string
+export interface ILink {
+    children?: React.ReactNode,
+    text?: string,
+    postscript?: string,
+    className?: string,
 }
 
-export const TextLink = (link: TextLinkProps): JSX.Element => {
+export interface ILocalLink extends ILink {
+    to: LinkProps["to"] | string,
+    src: undefined
+}
+
+export interface IExternalLink extends ILink {
+    src: string;
+    to: undefined
+}
+
+export const LocalLink = ({ to, text, children, postscript, className }: ILocalLink): JSX.Element => {
     return (
-        <Link to={link.src} className="text-rose-300 text-decoration-line: underline underline-offset-4">
-            {link.text}
-        </Link>
+        <>
+            <Link to={to} className={`TextLink text-rose-300 text-decoration-line: underline underline-offset-4 ${className}`}>
+                <p>{text || children || 'link'} </p>
+            </Link>
+            {postscript ? <p> - {postscript}</p> : null}
+        </>
     )
-
 }
 
-export interface TextLinkListProps {
-    list: TextLinkProps[]
+export const ExternalLink = ({ src, text, children, postscript, className }: IExternalLink): JSX.Element => {
+    return (
+        <>
+            <a href={src} className={`TextLink text-rose-300 text-decoration-line: underline underline-offset-4 ${className}`}>
+                <p>{text || children || 'link'} </p>
+            </a>
+            {postscript ? <p> - {postscript}</p> : null}
+        </>
+    )
+}
+
+export interface ILinkList {
+    list: (ILocalLink | IExternalLink)[]
 };
 
-export const TextLinkList = ({ list }: TextLinkListProps): JSX.Element => {
+const sortLink = (link: ILocalLink | IExternalLink): JSX.Element | undefined => {
+    if (link.to) {
+        return (<LocalLink {...link}>{link.children}</LocalLink>)
+    }
+    if (link.src) {
+        return (<ExternalLink {...link}>{link.children}</ExternalLink>)
+    } else {
+        return;
+    }
+}
+
+export const TextLinkList = ({ list }: ILinkList): JSX.Element => {
     return (
         <ul>
-            {list.map((link: TextLinkProps) => {
-                return <li><TextLink {...link} /></li>
+            {list.map((link: ILocalLink | IExternalLink) => {
+                return (<li>
+                    {sortLink(link)}
+                </li>
+                )
             })}
         </ul>
     )
@@ -32,7 +71,7 @@ export const TextLinkList = ({ list }: TextLinkListProps): JSX.Element => {
 export interface BlockquoteProps {
     text: string,
     author: string,
-    link?: TextLinkProps
+    link?: ILocalLink | IExternalLink
 }
 
 export const Blockquote = (props: BlockquoteProps): JSX.Element => {
@@ -44,7 +83,7 @@ export const Blockquote = (props: BlockquoteProps): JSX.Element => {
                 </blockquote>
                 <figcaption className="text-amber-200 ">
                     {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}
-                    - {!props.link ? `author` : `${props.author}, `}{!props.link ? null : <TextLink src={props.link.src} text={props.link.text} />}
+                    - {!props.link ? `author` : `${props.author}, `}{!props.link ? null : <TextLink to={props.link.to} text={props.link.text} />}
                 </figcaption>
             </div>
         </figure>
@@ -75,5 +114,4 @@ export const Heading = ({ size, children, className }: HeadingProps): JSX.Elemen
                 return (<h5 className={`text-1xl ${className || ""}`}>{children || "H5"}</h5>);
         }
     }
-
 }
