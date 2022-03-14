@@ -10,19 +10,17 @@ export interface ILink {
 
 export interface ILocalLink extends ILink {
     to: LinkProps["to"] | string,
-    src: undefined
 }
 
 export interface IExternalLink extends ILink {
     src: string;
-    to: undefined
 }
 
 export const LocalLink = ({ to, text, children, postscript, className }: ILocalLink): JSX.Element => {
     return (
         <>
             <Link to={to} className={`TextLink text-rose-300 text-decoration-line: underline underline-offset-4 ${className}`}>
-                <p>{text || children || 'link'} </p>
+                {text || children || 'link'}
             </Link>
             {postscript ? <p> - {postscript}</p> : null}
         </>
@@ -33,7 +31,7 @@ export const ExternalLink = ({ src, text, children, postscript, className }: IEx
     return (
         <>
             <a href={src} className={`TextLink text-rose-300 text-decoration-line: underline underline-offset-4 ${className}`}>
-                <p>{text || children || 'link'} </p>
+                {text || children || 'link'}
             </a>
             {postscript ? <p> - {postscript}</p> : null}
         </>
@@ -45,10 +43,10 @@ export interface ILinkList {
 };
 
 const sortLink = (link: ILocalLink | IExternalLink): JSX.Element | undefined => {
-    if (link.to) {
+    if ('to' in link) {
         return (<LocalLink {...link}>{link.children}</LocalLink>)
     }
-    if (link.src) {
+    if ('src' in link) {
         return (<ExternalLink {...link}>{link.children}</ExternalLink>)
     } else {
         return;
@@ -74,16 +72,17 @@ export interface BlockquoteProps {
     link?: ILocalLink | IExternalLink
 }
 
-export const Blockquote = (props: BlockquoteProps): JSX.Element => {
+export const Blockquote = ({ text, author, link }: BlockquoteProps): JSX.Element => {
+
     return (
         <figure className='bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 max-w-lg' >
             <div className='pt-6 md:p-8 text-left space-y-4 max-w-2xl after:w-10 after:block after:h-10 after:bg-blockquote after:bg-no-repeat after:absolute after:top after:right'>
                 <blockquote className="mr-1 block" >
-                    {props.text}
+                    {text}
                 </blockquote>
                 <figcaption className="text-amber-200 ">
                     {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}
-                    - {!props.link ? `author` : `${props.author}, `}{!props.link ? null : <TextLink to={props.link.to} text={props.link.text} />}
+                    - {!link ? { author } : `${author}, `}{!link ? null : sortLink(link)}
                 </figcaption>
             </div>
         </figure>
@@ -114,4 +113,21 @@ export const Heading = ({ size, children, className }: HeadingProps): JSX.Elemen
                 return (<h5 className={`text-1xl ${className || ""}`}>{children || "H5"}</h5>);
         }
     }
+}
+
+interface ILinkButton {
+    href: string,
+    className?: string,
+    children?: React.ReactNode
+}
+
+export const LinkButton = ({ href, className, children }: ILinkButton): JSX.Element => {
+    const props = { className: `LinkButton ${className}` }
+    return (
+        <a href={href}>
+            <div {...props}>
+                {children}
+            </div>
+        </a>
+    )
 }
