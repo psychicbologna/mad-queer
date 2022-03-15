@@ -1,11 +1,16 @@
+import { Page } from '../../components/layout';
+import { IPage } from '../../components/layout/index.types';
 import './FeedbackPage.css';
 
-const FeedbackPage = () => {
+export const FeedbackPage = () => {
+    const pageMeta: IPage["meta"] = {
+        title: 'Feedback',
+        description: 'Give your feedback on your experiences with the tools provided on this site.',
+        author: 'Elliott Fukui'
+    };
     return (
-        <div>
+        <Page className='Feedback' meta={pageMeta}>
             this will lead to a feedback form
-        </div>
+        </Page>
     )
 }
-
-export default FeedbackPage;

@@ -1,15 +1,17 @@
 import { IBlockquote } from "../index.types"
 import { sortLink } from "../index.helpers"
 
-export const Blockquote = ({ text, author, link }: IBlockquote): JSX.Element => {
+//TODO add images
 
+//Returns a blockquote surrounded by a figure, an emphasized, block-level quote for landing pages.
+export const FeatureBlockquote = ({ text, author, link, className }: IBlockquote): JSX.Element => {
     return (
-        <figure className='bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 max-w-lg' >
-            <div className='pt-6 md:p-8 text-left space-y-4 max-w-2xl after:w-10 after:block after:h-10 after:bg-blockquote after:bg-no-repeat after:absolute after:top after:right'>
-                <blockquote className="mr-1 block" >
+        <figure className={`FeatureBlockquoteFigure ${className}`} >
+            <div className='FeatureBlockquoteDiv'>
+                <blockquote className="FeatureBlockquoteQuote" >
                     {text}
                 </blockquote>
-                <figcaption className="text-amber-200 ">
+                <figcaption className="FeatureBlockquoteFigcaption">
                     {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}
                     - {!link ? { author } : `${author}, `}{!link ? null : sortLink(link)}
                 </figcaption>
@@ -17,3 +19,10 @@ export const Blockquote = ({ text, author, link }: IBlockquote): JSX.Element => 
         </figure>
     )
 }
+
+//A blockquote that appears more organically in a block of copy or article. Has an param for an optional 'citation' link.
+export const InlineBlockQuote = ({ }) => { }
+
+//A blockquote, very similar to the FeatureBlockquote but more specifically designated as a testimonial for advertising.
+//TODO Maybe later this can have more SEO tricks attached to it; includes ratings and reviews?
+export const Testimonial = ({ text, author, link }: IBlockquote) => { }

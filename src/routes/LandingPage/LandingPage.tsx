@@ -1,5 +1,7 @@
 import textStore from '../../assets/textStore';
-import { Blockquote, Heading } from "../../components/Utils";
+import { Page } from '../../components/layout';
+import { IPage } from '../../components/layout/index.types';
+import { FeatureBlockquote, Heading } from "../../components/Utils";
 import './LandingPage.css'
 
 const quote1 = {
@@ -11,12 +13,18 @@ const quote1 = {
     }
 }
 
-const LandingPage = (): JSX.Element => {
+export const LandingPage = (): JSX.Element => {
+
+    const pageMeta: IPage["meta"] = {
+        title: null,
+        description: 'Liberation for Every Body',
+        author: 'Elliott Fukui'
+    };
 
     const { landingPage } = textStore;
 
     return (
-        <div className="Landing">
+        <Page className="Landing" meta={pageMeta}>
             <div className="Intro">
                 <div className="Card dark:bg-slate-800">
                     <Heading size={3}>Building Maps, Strategies and Processes for Liberation</Heading>
@@ -26,9 +34,8 @@ const LandingPage = (): JSX.Element => {
                     'Mad Queer Organizing Strategies are the trainings and resources that I offer to support folks who may identify/be identified as people living with mental illness, folks who identify with experiencing emotional crisis, and anyone who is looking for tools to support grounding in disability justice, mutual aid, and abolitionist strategies. \n From supporting folks who experience emotional crisis one on one, to leading workshops for organizations committing and striving to building safety and wellness into their organizational cultures, I have had the privilege of working with brilliant people across the country who are shifting cultures and changing their conditions on the frontlines every day. \n My work, and my passions, have been primarily as a facilitator, trainer and organizer in Queer and Trans, People of Color, Disabled, Low Income, Youth and Prison Abolition centered organizations and collectives nationally. I love supporting folks in creating the spaces, and communities that they need to thrive as their whole authentic self.'
                 </p>
             </div>
-            <Blockquote {...quote1} />
-        </div>
+            <FeatureBlockquote {...quote1} />
+        </Page>
     )
 }
 
-export default LandingPage;

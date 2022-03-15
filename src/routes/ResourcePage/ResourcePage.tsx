@@ -3,11 +3,19 @@ import ResourceList from '../../components/Resource/ResourceList';
 import { Resource } from '../../services/APIResponsesTypes';
 import ResourceAPI from '../../services/ResourceAPI';
 import { Heading } from '../../components/Utils';
+import { Page } from "../../components/layout";
+import { IPage } from "../../components/layout/index.types";
 
 //TODO Create a transcript version of each resource, maybe using markdown and a transformer in parcel.
 //TODO Create a test for the fetchResourceList API Call
 
-const ResourcePage = (): JSX.Element => {
+export const ResourcesPage = (): JSX.Element => {
+    const pageMeta: IPage["meta"] = {
+        title: 'Resources',
+        description: 'Need more than what you find here? Here are additional resources to look at.',
+        author: 'Elliott Fukui'
+    };
+
     const [resourceList, setResourceList] = useState([] as Resource[])
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<null | Error>(null);
@@ -49,13 +57,11 @@ const ResourcePage = (): JSX.Element => {
     }
 
     return (
-        <div className="ResourcePage">
+        <Page className="Resources" meta={pageMeta}>
             <Heading size={3}>Resources</Heading>
             <div className="ResourceListContainer">
                 {loadContent()}
             </div>
-        </div>
+        </Page>
     )
 }
-
-export default ResourcePage;

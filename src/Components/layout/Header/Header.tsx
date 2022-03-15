@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { Heading } from './Utils'
+import { Heading } from '../../Utils'
 
-const Header = (): JSX.Element => {
+export const Header = (): JSX.Element => {
     return (
         <div className="Header flex-col gap-10 p-10">
             <Heading size={2}>Mad Queer Organization Strategies</Heading>
@@ -32,5 +32,3 @@ const Header = (): JSX.Element => {
         </div>
     )
 }
-
-export default Header

@@ -1,4 +1,6 @@
-import { Page, Heading, ExternalLink, Blockquote } from "../../components/Utils";
+import { Page } from "../../components/layout";
+import { IPage } from "../../components/layout/index.types";
+import { Heading, ExternalLink, FeatureBlockquote } from "../../components/Utils";
 import './AboutPage.css';
 
 const sammieImage = new URL('../../assets/about/sammie-ablaza-wills.bmp', import.meta.url);
@@ -14,9 +16,14 @@ const quote1 = {
 }
 
 
-const AboutPage = () => {
+export const AboutPage = () => {
+    const pageMeta: IPage["meta"] = {
+        title: 'About',
+        description: 'More about Elliott Fukui and the Mad Tools',
+        author: 'Elliott Fukui'
+    };
     return (
-        <Page className="AboutPage">
+        <Page className="About" meta={pageMeta}>
             <Heading size={3}>My Origin Story</Heading>
 
             <p>My name is Elliott Fukui, I use He/Him pronouns and currently live in California, and I've been an organizer, trainer and facilitator for 20 years across different movements, working with organizations, collectives, friends, and family. You can check out some of my work on my <ExternalLink src='https://www.linkedin.com/in/elliott-fukui/'>Linkedin.</ExternalLink></p>
@@ -56,10 +63,8 @@ const AboutPage = () => {
                 </li>
             </ul>
             <div>
-                <Blockquote {...quote1} />
+                <FeatureBlockquote {...quote1} />
             </div>
         </Page>
     )
 }
-
-export default AboutPage;

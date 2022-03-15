@@ -1,5 +1,9 @@
-import { Page, Heading, LocalLink, TextLinkList, LinkButton } from "../../components/Utils";
+import { Page } from "../../components/layout";
+import { IPage } from "../../components/layout/index.types";
+import { Heading, LocalLink, TextLinkList, LinkButton } from "../../components/Utils";
 import './ConnectPage.css';
+
+//TODO Add contact link
 
 const crisisLinks = [
     {
@@ -35,9 +39,14 @@ const crisisLinks = [
 ]
 
 //TODO style Alert component
-const ConnectPage = () => {
+export const ConnectPage = () => {
+    const pageMeta: IPage["meta"] = {
+        title: 'Connect',
+        description: 'Contact form, and additional crisis resources.',
+        author: 'Elliott Fukui'
+    };
     return (
-        <Page className="Connect">
+        <Page className="Connect" meta={pageMeta}>
             <div className="Alert">
                 <p>
                     If you are looking for support and are currently in an emotional crisis, I recommend checking out the following groups and hotlines.
@@ -56,5 +65,3 @@ const ConnectPage = () => {
         </Page>
     )
 }
-
-export default ConnectPage;

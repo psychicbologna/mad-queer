@@ -3,6 +3,7 @@ import { renderToNodeStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import fs from 'fs';
 import App from '../src/components/App';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 //Route declaration
 // fastify.get('/', async (req, res) => {
@@ -32,12 +33,19 @@ express.static(root, [options]) - serves a static file.
     options - options
 */
 
+const helmetContext = {}
+
 app.use("/frontend", express.static("dist/frontend"));
 app.use((req, res) => {
     res.write(parts[0]);
     const reactMarkup = (
         <StaticRouter location={req.url}>
-            <App />
+            <HelmetProvider context={helmetContext}>
+                <Helmet>
+                    <title>Mad Queer Organizational Tools</title>
+                </Helmet>
+                <App />
+            </HelmetProvider>
         </StaticRouter>
     );
 
