@@ -12,7 +12,15 @@
     "rules": {
         "react/prop-types": 0,
         "react/react-in-jsx-scope": 0,
-        "@typescript-eslint/no-empty-function": 0
+        "@typescript-eslint/no-empty-function": 0,
+        "prettier/prettier": [
+            "warn",
+            {
+                "singleQuote": true,
+                "semi": false,
+                "trailingComma": "none"
+            }
+        ]
     },
     "plugins": [
         "react",
