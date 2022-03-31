@@ -1,0 +1,7 @@
+.FeatureBlockquoteFigure {
+    background-image: url('../../../assets/double-quote.svg');
+    background-repeat: no-repeat;
+    background-size: 2.5rem;
+    content: var(--tw-content);
+    background-position: right top;
+}

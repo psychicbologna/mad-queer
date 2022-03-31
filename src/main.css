@@ -1,5 +1,32 @@
 /*@link https://necolas.github.io/normalize.css/ */
-@import url(./normalize.css);
+
+@import url('./normalize.css');
+@font-face {
+    font-family: CerebriSansBook;
+    src: url('./assets/fonts/Cerebri Sans Book.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: CerebriSansBookItalic;
+    src: url('./assets/fonts/Cerebri Sans Book Italic.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: SanchezRegular;
+    src: url('./assets/fonts/Sanchez-Regular.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: SanchezItalic;
+    src: url('./assets/fonts/Sanchez-Italic.woff2') format('woff2')
+}
+
+@font-face {
+    font-family: RobotoRegular;
+    src: url('./assets/fonts/Roboto-Regular.woff2') format('woff2 supports variations'), url('./assets/fonts/Roboto-Regular.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-stretch: 50 200;
+}
 
 html {
     height: 100vh;
@@ -7,13 +34,49 @@ html {
 }
 
 body {
+    font-family: 'RobotoRegular', Arial, Helvetica, sans-serif;
     height: 100%;
     width: 100%;
-    color: #fff;
+    color: rgb(189, 186, 186);
     background-color: rgb(28, 23, 56);
 }
 
-/* background-image: url("double-quote.31cfbeb8.svg");
-background-size: 2.5rem;
-content: var(--tw-content);
-background-position: right top; */
+
+/* Header */
+
+h1 {
+    font-family: 'CerebriSansBook', Arial, Helvetica, sans-serif;
+}
+
+
+/* Header Italics */
+
+h1>i,
+em,
+.italic {
+    font-family: 'CerebriSansBookItalic'
+}
+
+h2,
+h3,
+h4 {
+    font-family: 'SanchezRegular', Arial, Helvetica, sans-serif;
+}
+
+h2>i,
+h2>em,
+h2>.italic,
+h3>i,
+h3>em,
+h3>.italic,
+h4>i,
+h4>em,
+h4>.italic {
+    font-family: 'SanchezItalic'
+}
+
+h5,
+h6 {
+    font-family: RobotoRegular;
+    font-variant: small-caps;
+}

@@ -4,3 +4,5 @@ dist
 .vscode
 .parcel-cache
 notes.md
+coverage
+.DS_Store
