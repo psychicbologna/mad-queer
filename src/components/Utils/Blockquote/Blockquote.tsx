@@ -10,10 +10,11 @@ export const FeatureBlockquote = ({ text, author, link, className }: IBlockquote
     return (
         <figure className={`FeatureBlockquoteFigure ${className}`} >
             <object className="PrefixQuoteSVG QuoteSVG" data={doubleQuote} title='Prefix Quote Marks' />
+            <object className="PostfixQuoteSVG QuoteSVG" data={doubleQuote} title='Postfix Quote Marks' />
+
             <blockquote className="FeatureBlockquoteQuote" >
                 {text}
             </blockquote>
-            <object className="PostfixQuoteSVG QuoteSVG" data={doubleQuote} title='Postfix Quote Marks' />
 
             <figcaption className="FeatureBlockquoteFigcaption">
                 {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}

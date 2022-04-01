@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const Nav = (): JSX.Element => {
     return (
-        <nav>
+        <nav className="Nav">
             <NavLink className="NavLink" to="/">
                 Home
             </NavLink>

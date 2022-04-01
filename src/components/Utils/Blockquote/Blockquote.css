@@ -1,3 +1,42 @@
+
+
+
+.FeatureBlockquoteFigure {
+    background-color: var(--hero-background-color);
+    margin: 0;
+    padding-top: .1rem;
+    max-width: 1600px;
+}
+
+.FeatureBlockquoteQuote {
+    /* margin: 1em var(--h1-size); */
+    font-family: var(--hero-font);
+    font-size: var(--h4-size);
+}
+
+.QuoteSVG {
+    display: block;
+    height: var(--h1-size);
+    width: var(--h1-size);
+}
+
+.PrefixQuoteSVG {
+    float: left;
+    transform: scaleX(-1);
+    margin-left: var(--quotes-margin);
+}
+
+.PostfixQuoteSVG {
+    float: right;
+    margin-right: var(--quotes-margin);
+}
+
+.FeatureBlockquoteFigcaption {
+    text-align: right;
+}
+
+/*Grid, if supported */
+
 @supports (display: grid) {
     .FeatureBlockquoteFigure {
         display: grid;
@@ -5,47 +44,48 @@
         "before quote after"
         "attribute attribute attribute"
         /min-content auto min-content;
+        padding: none;
     }
     .PrefixQuoteSVG {
         grid-area: before;
+        left: unset;
+        float: unset;
     }
     .FeatureBlockquoteQuote {
+        margin: .8rem;
         grid-area: quote;
+    }
+    .QuoteSVG {
+        position:static;
     }
 
     .PostfixQuoteSVG {
+        right:unset;
         grid-area: after;
+        float:unset;
     }
     
     .FeatureBlockquoteFigcaption {
         grid-area: attribute;
     }
 }
-@supports not (display: grid) {
+
+@media only screen and (max-width: 550px) {
+    .FeatureBlockquoteQuote {
+        font-size: var(--h5-size);
+    } 
+    .QuoteSVG {
+        margin-top: 1rem;
+        height: var(--h2-size);
+        width: var(--h2-size);
+    }
+    :root {
+        --quotes-margin: calc(var(--h3-size) / 6);
+    }
 }
 
-.FeatureBlockquoteFigure {
-    background-color: var(--hero-background-color);
-    margin: 0;
-}
-
-.FeatureBlockquoteQuote {
-    font-family: var(--hero-font);
-    font-size: var(--h4-size);
-}
-
-.QuoteSVG {
-    height: var(--h1-size);
-    width: var(--h1-size);
-    display: inline-block;
-}
-
-.PrefixQuoteSVG {
-    transform: scaleX(-1);
-}
-
-.PostfixQuoteSVG {
-}
-
-.FeatureBlockquoteFigcaption {
+@media only screen and (min-width: 764px) {
+    :root {
+        --quotes-margin: calc(var(--h1-size) / 6);
+    }
 }

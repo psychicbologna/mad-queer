@@ -5,12 +5,15 @@
 } */
 
 .LandingIntro {
+    display: flex;
+    flex-flow: column;
     padding: 3em;
 }
 
 .LandingIntroPhoto {
-    float:right;
-    margin: 1em;
+    max-width: 308px;
+    width: 200px;
+    margin: .5rem auto;
     border-radius: 50%;
     border: 0.25em solid;
 }
@@ -26,4 +29,18 @@
     font-size: var(--hero-size);
     background-color: var(--hero-background-color);
     padding: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    .LandingIntroPhoto {
+        float: right;
+        width: 308px;
+        margin: 1rem;
+        display: block
+    }
+
+    .LandingIntro {
+        display: block;
+        flex-flow: unset;
+    }
 }

@@ -1,7 +1,14 @@
 .Nav {
-    margin: 2em;
+    display: flex;
+    flex-flow: column;
+    margin: 1rem;
 }
 
 .NavLink {
-    margin: 1em;
+    border-radius: .25rem;
+    text-align: center;
+    text-decoration: none;
+    margin: .25rem;
+    background-color: var(--body-color);
+    color: var(--body-background-color);
 }
