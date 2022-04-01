@@ -32,8 +32,12 @@
 }
 
 .FeatureBlockquoteFigcaption {
-    text-align: right;
+    margin-left: calc(50% + 2rem);
+    margin-right: .1rem;
+    margin-bottom: 1rem;
+    text-indent: -2rem;
 }
+
 
 /*Grid, if supported */
 
@@ -67,10 +71,18 @@
     
     .FeatureBlockquoteFigcaption {
         grid-area: attribute;
+        font-size: 1.15em;
     }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 450px) {
+
+    .FeatureBlockquoteQuote {
+        text-indent: 2rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
     .FeatureBlockquoteQuote {
         font-size: var(--h5-size);
     } 
@@ -78,6 +90,7 @@
         margin-top: 1rem;
         height: var(--h2-size);
         width: var(--h2-size);
+        
     }
     :root {
         --quotes-margin: calc(var(--h3-size) / 6);
@@ -85,6 +98,11 @@
 }
 
 @media only screen and (min-width: 764px) {
+
+    .FeatureBlockquoteQuote {
+        text-indent: 2rem;
+    }
+
     :root {
         --quotes-margin: calc(var(--h1-size) / 6);
     }

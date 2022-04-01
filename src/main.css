@@ -66,6 +66,7 @@ small, .text_small {font-size: 0.75rem;}
 
 a {
     color: var(--text-link-color);
+    text-underline-offset: 5px;
 }
 
 
