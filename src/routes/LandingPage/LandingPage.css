@@ -1,0 +1,29 @@
+/* 
+
+.Landing {
+
+} */
+
+.LandingIntro {
+    grid-template-columns: 1fr 1fr;
+    padding: 3em;
+}
+
+.LandingIntroPhoto {
+    float:right;
+    margin: 2em;
+    border-radius: 50%;
+    border: 0.25em solid;
+}
+
+/* .LandingContact {
+
+} */
+
+.Hero {
+    text-align: center;
+    font-family: var(--hero-font);
+    font-size: var(--hero-size);
+    background-color: var(--hero-background-color);
+    padding: 1em;
+}

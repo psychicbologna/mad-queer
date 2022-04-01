@@ -1,5 +1,6 @@
 import { IPage } from '../index.types';
 import { Helmet } from 'react-helmet-async';
+import './Page.css'
 
 export const Page = ({ className, children, meta }: IPage) => {
 
