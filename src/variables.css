@@ -27,5 +27,8 @@
     --heading-color: #fff;
     --subheading-color: rgb(187, 92, 206);
     --subheading-color: var(--heading-color);
-    --hero-background-color: rgb(98, 39, 126)
+    --hero-background-color: rgb(98, 39, 126);
+
+    /*SVGs*/
+    --svg-fill-color: var(--body-color);
 }

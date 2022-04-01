@@ -17,8 +17,8 @@ const ResourceHeader = ({
 }: IProps): JSX.Element => {
   return (
     <div className="ResourceHeader">
-      <Heading size={3}>{title}</Heading>
-      <Heading size={4}>{subtitle}</Heading>
+      <Heading size={4}>{title}</Heading>
+      <Heading size={5}>{subtitle}</Heading>
       <p className="text-xl">By {authors[0]}</p>
       <p className="text-xl">{type}</p>
       <p>{!!pageCount ? `Pages: ${pageCount}` : null}</p>

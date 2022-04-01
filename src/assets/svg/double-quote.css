@@ -1,0 +1,6 @@
+@import url('../../variables.css');
+
+path {
+    fill: #fff;
+    fill: var(--svg-fill-color);
+}

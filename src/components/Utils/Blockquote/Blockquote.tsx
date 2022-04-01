@@ -1,6 +1,7 @@
 import { IBlockquote } from "../index.types"
 import { sortLink } from "../index.helpers"
 import './Blockquote.css'
+import { doubleQuote } from '../../../assets/svg/'
 
 //TODO add images
 
@@ -8,15 +9,16 @@ import './Blockquote.css'
 export const FeatureBlockquote = ({ text, author, link, className }: IBlockquote): JSX.Element => {
     return (
         <figure className={`FeatureBlockquoteFigure ${className}`} >
-            <div className='FeatureBlockquoteDiv'>
-                <blockquote className="FeatureBlockquoteQuote" >
-                    {text}
-                </blockquote>
-                <figcaption className="FeatureBlockquoteFigcaption">
-                    {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}
-                    - {!link ? { author } : `${author}, `}{!link ? null : sortLink(link)}
-                </figcaption>
-            </div>
+            <object className="PrefixQuoteSVG QuoteSVG" data={doubleQuote} title='Prefix Quote Marks' />
+            <blockquote className="FeatureBlockquoteQuote" >
+                {text}
+            </blockquote>
+            <object className="PostfixQuoteSVG QuoteSVG" data={doubleQuote} title='Postfix Quote Marks' />
+
+            <figcaption className="FeatureBlockquoteFigcaption">
+                {/* If there's a link, prints the link alongside the author's name, else just prints the author's name. */}
+                - {!link ? { author } : `${author}, `}{!link ? null : sortLink(link)}
+            </figcaption>
         </figure>
     )
 }

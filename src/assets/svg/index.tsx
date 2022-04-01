@@ -1,0 +1,1 @@
+export const doubleQuote = new URL('double-quote.svg', import.meta.url).toString()

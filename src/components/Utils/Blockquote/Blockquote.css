@@ -1,7 +1,51 @@
+@supports (display: grid) {
+    .FeatureBlockquoteFigure {
+        display: grid;
+        grid-template:
+        "before quote after"
+        "attribute attribute attribute"
+        /min-content auto min-content;
+    }
+    .PrefixQuoteSVG {
+        grid-area: before;
+    }
+    .FeatureBlockquoteQuote {
+        grid-area: quote;
+    }
+
+    .PostfixQuoteSVG {
+        grid-area: after;
+    }
+    
+    .FeatureBlockquoteFigcaption {
+        grid-area: attribute;
+    }
+}
+@supports not (display: grid) {
+}
+
 .FeatureBlockquoteFigure {
-    background-image: url('../../../assets/images/double-quote.svg');
-    background-repeat: no-repeat;
-    background-size: 2.5rem;
-    content: var(--tw-content);
-    background-position: right top;
+    background-color: var(--hero-background-color);
+    margin: 0;
+}
+
+.FeatureBlockquoteQuote {
+    font-family: var(--hero-font);
+    font-size: var(--h4-size);
+}
+
+.QuoteSVG {
+    height: var(--h1-size);
+    width: var(--h1-size);
+    display: inline-block;
+}
+
+.PrefixQuoteSVG {
+    transform: scaleX(-1);
+}
+
+.PostfixQuoteSVG {
+}
+
+.FeatureBlockquoteFigcaption {
 }
