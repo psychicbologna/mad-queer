@@ -4,8 +4,8 @@
   "description": "An accessible, mobile-focused resource sharing app",
   "main": "index.js",
   "scripts": {
-    "build": "npx parcel build",
-    "dev": "npx parcel ./src/index.html",
+    "build": "parcel build",
+    "dev": "parcel ./src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "cleanup": "rm -rf .parcel-cache",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
@@ -63,7 +63,6 @@
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "autoprefixer": "^10.4.2",
-    "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.4.0",

@@ -39,7 +39,7 @@ const ResourceAPIServices: IResourceAPIServices = {
     // updateOne: (id: string, updates: makeResourceProps) => { },
     // deleteOne: (id: string) => { },
     fetchAll: async (): (Promise<Resource[] | void>) => {
-        const res: Response = await fetch(`${process.env.API_ENDPOINT}/resources`);
+        const res: Response = await fetch(`${process.env.API_ENDPOINT}poo/resources`);
         return (!res.ok)
             ? res.json().then(error => Promise.reject(error))
             : res.json();

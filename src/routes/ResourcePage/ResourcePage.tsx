@@ -17,7 +17,7 @@ const handleApiCall = async (list: Resource[], apiService: () => Promise<void | 
             handleSetList(list);
         }
     } catch {
-        handleError(new Error('There were no items on the list'));
+        handleError(new Error('Something went wrong retrieving the items'));
     }
     return handleToggle();
 }
@@ -43,6 +43,7 @@ export const ResourcesPage = (): JSX.Element => {
     }
 
     const loadContent = (list: Resource[]) => {
+        console.log(process.env.API_ENDPOINT)
         if (!!isLoading && list && list.length === 0) {
             return <p>Loading Element...</p>
         }
@@ -50,10 +51,10 @@ export const ResourcesPage = (): JSX.Element => {
             if (list && list.length > 0) {
                 return (<ResourceList resourceList={resourceList} />)
             }
-            if (list && list.length === 0) {
+            if (list && list.length === 0 && !error) {
                 return (<p> There are no resources available. </p>)
             }
-            if (error) return <p>${error.message}</p>
+            if (error) return <p>{`Error: ${error.message}`}</p>
         }
     }
 
