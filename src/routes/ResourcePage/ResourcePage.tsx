@@ -1,13 +1,26 @@
 import { useEffect, useState } from "react";
 import ResourceList from '../../components/Resource/ResourceList';
 import { Resource } from '../../services/APIResponsesTypes';
-import ResourceAPI from '../../services/ResourceAPI';
+import ResourceAPIServices from '../../services/ResourceAPI';
 import { Heading } from '../../components/Utils';
 import { Page } from "../../components/layout";
 import { IPage } from "../../components/layout/index.types";
+import ErrorBoundary from "../../services/ErrorBoundary";
 
 //TODO Create a transcript version of each resource, maybe using markdown and a transformer in parcel.
 //TODO Create a test for the fetchResourceList API Call
+
+const handleApiCall = async (list: Resource[], apiService: () => Promise<void | Resource[]>, handleToggle: () => boolean, handleSetList: React.Dispatch<React.SetStateAction<Resource[]>>, handleError: React.Dispatch<React.SetStateAction<Error | null>>) => {
+    try {
+        const list = await apiService();
+        if (list && list.length > 0) {
+            handleSetList(list);
+        }
+    } catch {
+        handleError(new Error('There were no items on the list'));
+    }
+    return handleToggle();
+}
 
 export const ResourcesPage = (): JSX.Element => {
     const pageMeta: IPage["meta"] = {
@@ -21,47 +34,37 @@ export const ResourcesPage = (): JSX.Element => {
     const [error, setError] = useState<null | Error>(null);
 
     useEffect(() => {
-        void requestResources();
+        void handleApiCall(resourceList, ResourceAPIServices.fetchAll, toggleIsLoading, setResourceList, setError);
     }, [])
-
-    const requestResources = async () => {
-        if (!!isLoading) {
-            const list = await ResourceAPI.fetchResourceList();
-            if (list.length > 0) {
-                setResourceList(list);
-                return toggleIsLoading();
-            } else {
-                setError(new Error('Browser unable to retrieve list.'));
-                return toggleIsLoading();
-            }
-        }
-    }
 
     const toggleIsLoading = (): boolean => {
         setIsLoading(!isLoading);
         return isLoading;
     }
 
-    const loadContent = () => {
-        if (!!isLoading) {
+    const loadContent = (list: Resource[]) => {
+        if (!!isLoading && list && list.length === 0) {
             return <p>Loading Element...</p>
         }
-        if (resourceList.length > 0) {
-            return (<ResourceList resourceList={resourceList} />)
-        }
-        if (error) {
-            return (<p> Error: {error.message} </p>)
-        } else {
-            return null;
+        if (!isLoading) {
+            if (list && list.length > 0) {
+                return (<ResourceList resourceList={resourceList} />)
+            }
+            if (list && list.length === 0) {
+                return (<p> There are no resources available. </p>)
+            }
+            if (error) return <p>${error.message}</p>
         }
     }
 
     return (
-        <Page className="Resources" meta={pageMeta}>
-            <Heading size={3}>Resources</Heading>
-            <div className="ResourceListContainer">
-                {loadContent()}
-            </div>
-        </Page>
+        <ErrorBoundary>
+            <Page className="Resources" meta={pageMeta}>
+                <Heading size={3}>Resources</Heading>
+                <div className="ResourceListContainer">
+                    {loadContent(resourceList)}
+                </div>
+            </Page>
+        </ErrorBoundary>
     )
 }
