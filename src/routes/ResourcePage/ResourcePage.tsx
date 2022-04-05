@@ -43,7 +43,6 @@ export const ResourcesPage = (): JSX.Element => {
     }
 
     const loadContent = (list: Resource[]) => {
-        console.log(process.env.API_ENDPOINT)
         if (!!isLoading && list && list.length === 0) {
             return <p>Loading Element...</p>
         }
