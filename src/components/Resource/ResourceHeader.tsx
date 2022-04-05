@@ -1,27 +1,27 @@
 import { Heading } from '../Utils'
+import { typeLister } from './resource.helpers'
 
 interface IProps {
   title: string
   subtitle: string
   authors: string[]
-  pageCount: number
-  type: 'blog' | 'pocket-pop-ed'
+  type: readonly string[]
+  link: string
 }
 
 const ResourceHeader = ({
   title,
   subtitle,
   authors,
-  pageCount,
-  type
+  type,
+  link
 }: IProps): JSX.Element => {
   return (
     <div className="ResourceHeader">
-      <Heading size={4}>{title}</Heading>
+      <a href={link} target="_blank"><Heading size={4}>{title}</Heading></a>
       <Heading size={5}>{subtitle}</Heading>
-      <p className="text-xl">By {authors[0]}</p>
-      <p className="text-xl">{type}</p>
-      <p>{!!pageCount ? `Pages: ${pageCount}` : null}</p>
+      <p className="ResourceAuthors">By {authors.join(', ')}</p>
+      <ul className="ResourceTypeList">{typeLister(type, 'ResourceType')}</ul>
     </div>
   )
 }

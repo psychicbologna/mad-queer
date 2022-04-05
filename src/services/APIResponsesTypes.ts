@@ -3,7 +3,7 @@ export type image = {
     alt: string
 }
 
-export const resourceTypes: string[] = ["misc", "crisis", "advocacy", "educational", "safety", "disability", "minority", "immigration", "legal"]
+export const resourceTypes: readonly string[] = ["misc", "crisis", "advocacy", "educational", "safety", "disability", "minority", "immigration", "legal"] as const;
 
 //GET:Resources/[id]
 export interface Resource {
@@ -12,9 +12,9 @@ export interface Resource {
     subtitle: string | "",
     description: string | "",
     authors: string[] | [],
-    pageCount: number | 0,
-    type: typeof resourceTypes,
+    type: typeof resourceTypes | ["misc"],
     image: image,
+    link: string
 }
 
 export interface ResourceAPIResponses {

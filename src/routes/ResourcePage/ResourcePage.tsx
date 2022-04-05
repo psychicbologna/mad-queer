@@ -47,11 +47,13 @@ export const ResourcesPage = (): JSX.Element => {
             return <p>Loading Element...</p>
         }
         if (!isLoading) {
-            if (list && list.length > 0) {
-                return (<ResourceList resourceList={resourceList} />)
-            }
-            if (list && list.length === 0 && !error) {
-                return (<p> There are no resources available. </p>)
+            if (!error) {
+                if (list && list.length > 0) {
+                    return (<ResourceList resourceList={resourceList} />)
+                }
+                if (list && list.length === 0) {
+                    return (<p> There are no resources available. </p>)
+                }
             }
             if (error) return <p>{`Error: ${error.message}`}</p>
         }

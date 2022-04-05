@@ -1,18 +1,19 @@
 import { Resource as IResource } from '../../services/APIResponsesTypes'
 import ResourceHeader from './ResourceHeader'
 import ResourceBody from './ResourceBody'
+import './Resource.css'
 
 const Resource = ({
   title,
   subtitle,
   description,
   authors,
-  pageCount,
   type,
-  image
+  image,
+  link
 }: IResource): JSX.Element => {
-  const headerProps = { title, subtitle, authors, pageCount, type }
-  const bodyProps = { description, image }
+  const headerProps = { title, subtitle, authors, type, link }
+  const bodyProps = { description, image, link }
   return (
     <li className="Resource">
       <ResourceHeader {...headerProps} />

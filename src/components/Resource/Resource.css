@@ -1,0 +1,33 @@
+.ResourceTypeList {
+    list-style-type: none;
+    display: flex;
+    padding-left: 0;
+}
+
+.ResourceType {
+    border: 1px solid;
+    border-radius: .5rem;
+    padding: .25rem;
+}
+
+.ResourceType:first-child {
+    margin-right: 1rem;
+}
+
+.ResourceList {
+    display: flex;
+}
+
+.Resource {
+    list-style-type: none;
+}
+
+.ResourceHeader > h4 {
+    margin: 0px;
+}
+
+.ResourceImage {
+    height: 250px;
+    width: 250px;
+    object-fit:contain;
+}
